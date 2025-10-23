@@ -21,19 +21,9 @@ const router: Router = Router();
  *         required: true
  *         schema:
  *           type: string
- *     requestBody:
- *       required: true
- *       content:
- *         application/json:
- *           schema:
- *             $ref: '#/components/validations/postSchema'
  *     responses:
  *       '200':
  *         description: Post retrieved successfully
- *         content:
- *           application/json:
- *             schema:
- *               $ref: '#/components/validations/postResponse'
  *       '400':
  *         description: Invalid post
  *       '404':
@@ -59,17 +49,9 @@ router.get("/post/:id", getPostById);
  *           type: string
  *     requestBody:
  *       required: true
- *       content:
- *         application/json:
- *           schema:
- *             $ref: '#/components/validations/postSchema'
  *     responses:
  *       '200':
  *         description: Post moderated successfully
- *         content:
- *           application/json:
- *             schema:
- *               $ref: '#/components/validations/postResponse'
  *       '400':
  *         description: Invalid post
  *       '404':
@@ -91,19 +73,9 @@ router.post("/post/:id/moderate", moderatePost);
  *         required: true
  *         schema:
  *           type: string
- *     requestBody:
- *       required: true
- *       content:
- *         application/json:
- *           schema:
- *             $ref: '#/components/validations/userSchema'
  *     responses:
  *       '200':
  *         description: User profile retrieved successfully
- *         content:
- *           application/json:
- *             schema:
- *               $ref: '#/components/validations/userResponse'
  *       '400':
  *         description: Invalid user
  *       '404':
@@ -129,17 +101,9 @@ router.get("/user/:id/profile", getUserProfile);
  *           type: string
  *     requestBody:
  *       required: true
- *       content:
- *         application/json:
- *           schema:
- *             $ref: '#/components/validations/userSchema'
  *     responses:
  *       '200':
  *         description: User flagged successfully
- *         content:
- *           application/json:
- *             schema:
- *               $ref: '#/components/validations/userResponse'
  *       '400':
  *         description: Invalid user
  *       '404':
@@ -161,19 +125,9 @@ router.post("/user/:id/flag", flagUser);
  *         required: true
  *         schema:
  *           type: string
- *     requestBody:
- *       required: true
- *       content:
- *         application/json:
- *           schema:
- *             $ref: '#/components/validations/contentSchema'
  *     responses:
  *       '200':
  *         description: Flagged content statistics
- *         content:
- *           application/json:
- *             schema:
- *               $ref: '#/components/validations/contentResponse'
  *       '400':
  *         description: Invalid user
  *       '404':
