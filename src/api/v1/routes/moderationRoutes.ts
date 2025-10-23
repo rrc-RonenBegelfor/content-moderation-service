@@ -90,7 +90,7 @@ router.get("/user/:id/profile", getUserProfile);
  * @openapi
  * /moderation/user/{id}/flag:
  *   post:
- *     summary: Flag a user by id
+ *     summary: Flag a user by ID
  *     tags: [Users]
  *     security:
  *       - bearerAuth: []
@@ -100,7 +100,17 @@ router.get("/user/:id/profile", getUserProfile);
  *         required: true
  *         schema:
  *           type: string
- *         description: The unique identifier of the user
+ *         description: The unique identifier of the user to flag
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               reason:
+ *                 type: string
+ *                 description: The reason for flagging the user
  *     responses:
  *       '200':
  *         description: User flagged successfully
@@ -111,6 +121,7 @@ router.get("/user/:id/profile", getUserProfile);
  *       '500':
  *         description: Internal server error
  */
+
 router.post("/user/:id/flag", flagUser);
 
 /**
