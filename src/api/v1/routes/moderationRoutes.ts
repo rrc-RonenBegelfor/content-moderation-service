@@ -20,11 +20,16 @@ const router: Router = Router();
  *         in: path
  *         required: true
  *         schema:
+ *           $ref: '#/components/validations/postSchema'
  *           type: string
  *         description: The unique identifier of the post
  *     responses:
  *       '200':
  *         description: Post retrieved successfully
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/validations/postResponseSchema'
  *       '400':
  *         description: Invalid post
  *       '404':
@@ -47,11 +52,16 @@ router.get("/post/:id", getPostById);
  *         in: path
  *         required: true
  *         schema:
+ *           $ref: '#/components/validations/postSchema'
  *           type: string
  *         description: The unique identifier of the post
  *     responses:
  *       '200':
  *         description: Post moderated successfully
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/validations/postResponseSchema'
  *       '400':
  *         description: Invalid post
  *       '404':
@@ -72,11 +82,16 @@ router.post("/post/:id/moderate", moderatePost);
  *         in: path
  *         required: true
  *         schema:
+ *           $ref: '#/components/validations/userSchema'
  *           type: string
  *         description: The unique identifier of the user
  *     responses:
  *       '200':
  *         description: User profile retrieved successfully
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/validations/userResponseSchema'
  *       '400':
  *         description: Invalid user
  *       '404':
@@ -99,6 +114,7 @@ router.get("/user/:id/profile", getUserProfile);
  *         in: path
  *         required: true
  *         schema:
+ *           $ref: '#/components/validations/userSchema'
  *           type: string
  *         description: The unique identifier of the user
  *     requestBody:
@@ -111,10 +127,14 @@ router.get("/user/:id/profile", getUserProfile);
  *               reason:
  *                 type: string
  *                 description: The reason for flagging the user
- *                 example: "Test"
+ *                 example: 'Test'
  *     responses:
  *       '200':
  *         description: User flagged successfully
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/validations/userResponseSchema'
  *       '400':
  *         description: Invalid user
  *       '404':
@@ -122,7 +142,6 @@ router.get("/user/:id/profile", getUserProfile);
  *       '500':
  *         description: Internal server error
  */
-
 router.post("/user/:id/flag", flagUser);
 
 /**
@@ -131,9 +150,15 @@ router.post("/user/:id/flag", flagUser);
  *   get:
  *     summary: Retrieve statistics on flagged content
  *     tags: [Content]
+ *     schema:
+ *       $ref: '#/components/validations/contentSchema'
  *     responses:
  *       '200':
  *         description: Flagged content statistics
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/validations/contentResponseSchema'
  *       '400':
  *         description: Invalid content
  *       '404':
