@@ -100,7 +100,7 @@ router.get("/user/:id/profile", getUserProfile);
  *         required: true
  *         schema:
  *           type: string
- *         description: The unique identifier of the user to flag
+ *         description: The unique identifier of the user
  *     requestBody:
  *       required: true
  *       content:
@@ -111,6 +111,7 @@ router.get("/user/:id/profile", getUserProfile);
  *               reason:
  *                 type: string
  *                 description: The reason for flagging the user
+ *                 example: "Test"
  *     responses:
  *       '200':
  *         description: User flagged successfully
