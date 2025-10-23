@@ -11,7 +11,7 @@ const router: Router = Router();
 
 /**
  * @openapi
- * /post{id}:
+ * /moderation/post/{id}:
  *   get:
  *     summary: Get post by id
  *     tags: [Posts]
@@ -36,7 +36,7 @@ router.get("/post/:id", getPostById);
 
 /**
  * @openapi
- * /post{id}/moderate:
+ * /moderation/post/{id}/moderate:
  *   post:
  *     summary: Moderate post by id
  *     tags: [Posts]
@@ -63,7 +63,7 @@ router.post("/post/:id/moderate", moderatePost);
 
 /**
  * @openapi
- * /user{id}/profile:
+ * /moderation/user/{id}/profile:
  *   get:
  *     summary: Get user profile by id
  *     tags: [Users]
@@ -88,7 +88,7 @@ router.get("/user/:id/profile", getUserProfile);
 
 /**
  * @openapi
- * /user{id}/flag:
+ * /moderation/user/{id}/flag:
  *   post:
  *     summary: Flag a user by id
  *     tags: [Users]
@@ -115,7 +115,7 @@ router.post("/user/:id/flag", flagUser);
 
 /**
  * @openapi
- * /content/flags/stats:
+ * /moderation/content/flags/stats:
  *   get:
  *     summary: Retrieve statistics on flagged content
  *     tags: [Content]
