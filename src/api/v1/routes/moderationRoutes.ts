@@ -21,6 +21,7 @@ const router: Router = Router();
  *         required: true
  *         schema:
  *           type: string
+ *         description: The unique identifier of the post
  *     responses:
  *       '200':
  *         description: Post retrieved successfully
@@ -47,8 +48,7 @@ router.get("/post/:id", getPostById);
  *         required: true
  *         schema:
  *           type: string
- *     requestBody:
- *       required: true
+ *         description: The unique identifier of the post
  *     responses:
  *       '200':
  *         description: Post moderated successfully
@@ -73,6 +73,7 @@ router.post("/post/:id/moderate", moderatePost);
  *         required: true
  *         schema:
  *           type: string
+ *         description: The unique identifier of the user
  *     responses:
  *       '200':
  *         description: User profile retrieved successfully
@@ -99,8 +100,7 @@ router.get("/user/:id/profile", getUserProfile);
  *         required: true
  *         schema:
  *           type: string
- *     requestBody:
- *       required: true
+ *         description: The unique identifier of the user
  *     responses:
  *       '200':
  *         description: User flagged successfully
@@ -119,19 +119,13 @@ router.post("/user/:id/flag", flagUser);
  *   get:
  *     summary: Retrieve statistics on flagged content
  *     tags: [Content]
- *     parameters:
- *       - name: id
- *         in: path
- *         required: true
- *         schema:
- *           type: string
  *     responses:
  *       '200':
  *         description: Flagged content statistics
  *       '400':
- *         description: Invalid user
+ *         description: Invalid content
  *       '404':
- *         description: User not found
+ *         description: Content not found
  *       '500':
  *         description: Internal server error
  */
