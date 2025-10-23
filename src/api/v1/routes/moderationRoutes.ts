@@ -154,7 +154,7 @@ router.post("/user/:id/flag", flagUser);
  * /content/flags/stats:
  *   get:
  *     summary: Retrieve statistics on flagged content
- *     tags: [Users]
+ *     tags: [Content]
  *     parameters:
  *       - name: id
  *         in: path
